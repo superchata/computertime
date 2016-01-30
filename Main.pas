@@ -20,12 +20,17 @@ type
     Label7: TLabel;
     Button3: TButton;
     CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
     procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-
     procedure Button3Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
+    procedure WMSize(var Msg: TMessage); message WM_SIZE;
+    procedure CheckBox2Click(Sender: TObject);
+    procedure FormMouseEnter(Sender: TObject);
+    procedure FormMouseLeave(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -35,7 +40,10 @@ type
 var
   Form1: TForm1;
   Time : array[0..2] of Integer;
-
+  Stick_Enable: bool;
+  Stick: bool;
+  Stick_Allow: bool;
+  miss: integer;
 implementation
 
 {$R *.dfm}
@@ -82,6 +90,69 @@ begin
       SetWindowPos(Handle, HWND_NOTOPMOST, 0, 0, 0, 0,
                      SWP_NoMove or SWP_NoSize);
    end;
+end;
+
+procedure TForm1.CheckBox2Click(Sender: TObject);
+begin
+  if CheckBox2.Checked = true then
+  begin
+     Stick_Enable := True;
+
+  end
+  else
+  begin
+     Stick_Enable := False;
+
+     SetWindowPos(Handle, HWND_NOTOPMOST, 0, 0, 0, 0,
+                     SWP_NoMove or SWP_NoSize);
+  end;
+
+end;
+
+procedure TForm1.FormMouseEnter(Sender: TObject);
+var
+  custom_point: TPoint;
+begin
+   if Stick_Enable = True then
+   begin
+       if (Stick = true) and (Stick_Allow = false)then
+       begin
+       Form1.Top := Screen.Monitors[0].Height div 2;
+       Form1.Left := Screen.Monitors[0].Width div 2;
+       custom_point.X := Screen.Monitors[0].Width div 2 + Form1.Width div 2;
+       custom_point.Y := Screen.Monitors[0].Height div 2 + Form1.Height div 2;
+       Mouse.CursorPos := custom_point;
+       Stick_Allow := true;
+       Stick := false;
+       end;
+
+
+
+   end;
+
+end;
+
+
+
+procedure TForm1.FormMouseLeave(Sender: TObject);
+begin
+  //blad jest przy wychodzeniu z okienka
+  //if Stick_Enable = True then
+  // begin
+  //     if (Stick = false) and (Stick_Allow = true)then
+  //     begin
+    //        showmessage(Sender.ClassName);
+     //       miss := 0;
+//Form1.Left :=  -550;
+  //  Form1.Top := Screen.Monitors[0].Height - Screen.Monitors[0].Height div 4;
+   // Stick := True;
+    //Stick_Allow := false;
+
+      // end;
+
+
+
+  // end;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
@@ -154,6 +225,20 @@ begin
 
 
 
+end;
+
+procedure TForm1.WMSize(var Msg: TMessage);
+begin
+  if (Msg.WParam  = SIZE_MINIMIZED) AND (Stick_Enable = True) then
+  begin
+    SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0,
+                     SWP_NoMove or SWP_NoSize);
+    Application.Restore;
+    Form1.Left :=  -550;
+    Form1.Top := Screen.Monitors[0].Height - Screen.Monitors[0].Height div 2;
+    Stick := True;
+    Stick_Allow := false;
+  end
 end;
 
 end.

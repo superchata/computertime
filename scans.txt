@@ -1,1 +1,2 @@
 v1.0.0.1 - v1.0.0.2 https://www.virustotal.com/pl/file/5cdc5ba4547a6cbcac7b72e560aa219b3ce71e06e2f410c65e635593b6bc268f/analysis/1454152438/
+v1.0.0.3 https://www.virustotal.com/pl/file/8334031b000a653834f3c537cf751cc0d9275e3bc2990aed9969d6fec911a745/analysis/1454169618/

@@ -1,6 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'ComputerTime'
   ClientHeight = 298
   ClientWidth = 635
@@ -15,6 +16,8 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnMouseEnter = FormMouseEnter
+  OnMouseLeave = FormMouseLeave
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -132,6 +135,15 @@ object Form1: TForm1
     Caption = 'Zawsze na wierzchu'
     TabOrder = 3
     OnClick = CheckBox1Click
+  end
+  object CheckBox2: TCheckBox
+    Left = 329
+    Top = 273
+    Width = 176
+    Height = 17
+    Caption = 'Przyklej do lewej strony monitora'
+    TabOrder = 4
+    OnClick = CheckBox2Click
   end
   object Timer1: TTimer
     Enabled = False
