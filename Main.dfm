@@ -5,6 +5,10 @@ object Form1: TForm1
   ClientHeight = 298
   ClientWidth = 635
   Color = clBtnFace
+  Constraints.MaxHeight = 337
+  Constraints.MaxWidth = 651
+  Constraints.MinHeight = 337
+  Constraints.MinWidth = 651
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -119,6 +123,15 @@ object Form1: TForm1
     Caption = 'Reset'
     TabOrder = 2
     OnClick = Button3Click
+  end
+  object CheckBox1: TCheckBox
+    Left = 511
+    Top = 273
+    Width = 116
+    Height = 17
+    Caption = 'Zawsze na wierzchu'
+    TabOrder = 3
+    OnClick = CheckBox1Click
   end
   object Timer1: TTimer
     Enabled = False

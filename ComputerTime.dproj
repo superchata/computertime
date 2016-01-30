@@ -1,9 +1,9 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{947E86D0-5060-4A23-9272-80116D0B63B5}</ProjectGuid>
+        <ProjectGuid>{0DA5C13F-D642-4B27-9DE6-DD7FA98FC33C}</ProjectGuid>
         <ProjectVersion>17.2</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
-        <MainSource>CzasPracy.dpr</MainSource>
+        <MainSource>ComputerTime.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -39,10 +39,20 @@
         <CfgParent>Base</CfgParent>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-        <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
-        <SanitizedProjectName>CzasPracy</SanitizedProjectName>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+        <SanitizedProjectName>ComputerTime</SanitizedProjectName>
+        <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <VerInfo_Keys>FileVersion=1.1.0.0</VerInfo_Keys>
+        <VerInfo_Locale>1045</VerInfo_Locale>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
@@ -52,10 +62,10 @@
         <DCC_K>false</DCC_K>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <DCC_UsePackage>FireDACSqliteDriver;frxTee22;DBXSqliteDriver;OverbyteIcsDXE8Run;FireDACPgDriver;UIRibbonPackageDR;fmx;IndySystem;SynEditDR;TeeDB;tethering;SysToolsDBDR;vclib;DBXInterBaseDriver;PowerPDFDR;frxe22;DbxCommonDriver;vclimg;dbxcds;OnGuardDR;appanalytics;DOSCommandDR;vcldb;vcldsnap;AbbreviaVCLD;fmxFireDAC;CustomIPTransport;vclribbon;AsyncProDR;dsnap;IndyIPServer;fmxase;vcl;IndyCore;VirtualShellToolsD;IndyIPCommon;CloudService;CodeSiteExpressPkg;FmxTeeUI;FireDACIBDriver;soapserver;inetdbxpress;dsnapxml;adortl;LockBox3DR;FireDACASADriver;PngComponentsD;frx22;bindcompfmx;EasyListviewD;FireDACODBCDriver;RESTBackendComponents;rtl;dbrtl;DbxClientDriver;FireDACCommon;bindcomp;inetdb;Tee;ChromeTabs_R;ibmonitor;vclFireDAC;OrpheusDR;xmlrtl;svnui;ibxpress;IndyProtocols;DBXMySQLDriver;FireDACCommonDriver;bindcompdbx;soaprtl;bindengine;vclactnband;FMXTee;TeeUI;bindcompvcl;VirtualTreesDR;vclie;frxDB22;FireDACADSDriver;vcltouch;VclSmp;FireDAC;VCLRESTComponents;Intraweb;EssentialsDR;dsnapcon;inet;MPCommonLibD;fmxobj;FireDACMySQLDriver;soapmidas;vclx;svn;fmxdae;OrpheusDBDR;RESTComponents;FireDACMSAccDriver;SysToolsDR;dbexpress;IndyIPClient;$(DCC_UsePackage)</DCC_UsePackage>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
@@ -71,24 +81,31 @@
         <DCC_RemoteDebug>true</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <VerInfo_MinorVer>0</VerInfo_MinorVer>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
-        <DCC_Description>Program do zadbania o czas spedzony przed komputerem utowrzony specjalnie dla forum.ziemniak.tv przez K4Kill</DCC_Description>
-        <VerInfo_Locale>1045</VerInfo_Locale>
-        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
-        <VerInfo_Keys>FileVersion=1.0.0.0</VerInfo_Keys>
-        <VerInfo_PreRelease>true</VerInfo_PreRelease>
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
         <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <VerInfo_MinorVer>0</VerInfo_MinorVer>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_AutoGenVersion>false</VerInfo_AutoGenVersion>
+        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.1;InternalName=;LegalCopyright=K4Kill;LegalTrademarks=;OriginalFilename=;ProductName=ComputerTime;ProductVersion=1.0.0.1;Comments=</VerInfo_Keys>
+    </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\Czas pracy\Main.pas">
+        <DCCReference Include="Main.pas">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
@@ -110,7 +127,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">CzasPracy.dpr</Source>
+                    <Source Name="MainSource">ComputerTime.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k220.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
@@ -120,9 +137,9 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="2">
-                <DeployFile LocalName="Win32\Debug\CzasPracy.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile LocalName="Win32\Debug\ComputerTime.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
-                        <RemoteName>CzasPracy.exe</RemoteName>
+                        <RemoteName>ComputerTime.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -502,13 +519,13 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>

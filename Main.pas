@@ -19,11 +19,13 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Button3: TButton;
+    CheckBox1: TCheckBox;
     procedure Timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Button1Click(Sender: TObject);
 
     procedure Button3Click(Sender: TObject);
+    procedure CheckBox1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -66,6 +68,20 @@ begin
   ProgressBar1.Position := 0;
   Timer1.Enabled := False;
   Button1.Caption := 'Start';
+end;
+
+procedure TForm1.CheckBox1Click(Sender: TObject);
+begin
+   if CheckBox1.Checked = true then
+   begin
+      SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0,
+                     SWP_NoMove or SWP_NoSize);
+   end
+   else
+   begin
+      SetWindowPos(Handle, HWND_NOTOPMOST, 0, 0, 0, 0,
+                     SWP_NoMove or SWP_NoSize);
+   end;
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
